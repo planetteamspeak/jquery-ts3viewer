@@ -21,6 +21,7 @@ Using the default settings, the plugin with utilize the [Simple REST API](https:
 
 * The TS3 Server must report to the official server list on `weblist.teamspeak.com` and appear in the [Global Server List](https://www.planetteamspeak.com/serverlist/) on the [Planet TeamSpeak](https://www.planetteamspeak.com/) website.
 * The owner of the TS3 Server must register (claim) it on the on the [Planet TeamSpeak](https://www.planetteamspeak.com/) website and enable ServerQuery connectivity in the [Control Panel](https://www.planetteamspeak.com/control/servers/).
+* ServerQuery connections are initiated from `37.59.113.89`, `167.114.184.17` and `151.80.148.48` so please consider adding those IPs to the TS3 Server whitelist file.
 
 ### Installation / Configuration
 
