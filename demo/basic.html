@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <meta name="author" content="Sven Paulsen">
+    <meta name="description" content="Basic Example">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>REST API TSViewer - Basic Example</title>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/uikit/2.21.0/css/uikit.gradient.min.css" />
+    <link rel="stylesheet" href="../src/themes/colored/tree.css" />
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/uikit/2.21.0/js/uikit.min.js"></script>
+    <script src="../src/jquery.ts3viewer.min.js"></script>
+
+    <script>
+
+    $(document).ready(function()
+    {
+      $("#tsviewer").tsviewer({
+        // mandatory server address
+        host: "82.211.30.15",
+        port: "9987",
+        // optional tooltip patterns
+        serverTip:  "Clients: $users/$slots",
+        channelTip: "Codec: $codec",
+        clientTip:  "Version: $version on $platform",
+        // optional callbacks
+        onNode:  function(elem, node) {
+          // your code
+        },
+        onReady: function(data, count) {
+          // your code
+        },
+        onError: function(error) {
+          // your code
+        }
+      });
+
+      $("#refresh").click(function() {
+        // shortcut to refresh the tree
+        $("#tsviewer").tsviewerRefresh(true);
+      });
+            
+      $("#expand").click(function() {
+        // shortcut to expand all nodes
+        $("#tsviewer").tsviewerExpand();
+      });
+            
+      $("#collapse").click(function() {
+        // shortcut to collapse all nodes
+        $("#tsviewer").tsviewerCollapse();
+      });
+    });
+
+    </script>
+    
+  </head>
+
+  <body style="padding: 10px;">
+    
+    <div class="uk-panel uk-panel-box" style="width: 300px;">
+      
+      <h1 class="uk-panel-title">
+        <i class="uk-icon uk-icon-html5"></i> REST API TSViewer Demo
+      </h1>
+
+      <div class="uk-margin">
+        <button type="button" class="uk-button uk-button-small uk-button-primary" id="expand">
+          <span class="uk-icon uk-icon-plus"></span> Expand All
+        </button>
+          
+        <button type="button" class="uk-button uk-button-small uk-button-primary" id="collapse">
+          <span class="uk-icon uk-icon-minus"></span> Collapse All
+        </button>
+          
+        <button type="button" class="uk-button uk-button-small uk-button-success" id="refresh">
+          <i class="uk-icon uk-icon-refresh"></i> Refresh
+        </button>
+      </div>
+        
+      <div id="tsviewer"></div>
+
+    </div>
+    
+  </body>
+
+</html>

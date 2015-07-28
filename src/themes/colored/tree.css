@@ -1,0 +1,261 @@
+.tsv-container {
+  text-align: left;
+  list-style: none;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+.tsv-wrapper {
+  width: 100%;
+  height: 16px;
+  line-height: 1.25em;
+  font-size: 1.0em;
+}
+
+.tsv-infos {
+  width: 100%;
+  float: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.tsv-icons {
+  float: right;
+}
+
+.tsv-clear {
+  clear: both;
+}
+
+.tsv-node.error {
+  color: red;
+}
+
+.tsv-spacer.left {
+  text-align: left;
+}
+
+.tsv-spacer.center {
+  text-align: center;
+}
+
+.tsv-spacer.right {
+  text-align: right;
+}
+
+.tsv-spacer.solidline .tsv-name,
+.tsv-spacer.dashline .tsv-name,
+.tsv-spacer.dashdotline .tsv-name,
+.tsv-spacer.dashdotdotline .tsv-name,
+.tsv-spacer.dotline .tsv-name {
+  margin-left: 16px;
+  background-repeat: repeat-x;
+  display: block;
+}
+
+.tsv-spacer.solidline .tsv-name {
+  background-image: url('spacer_solidline.gif');
+}
+
+.tsv-spacer.dashline .tsv-name {
+  background-image: url('spacer_dashline.gif');
+}
+
+.tsv-spacer.dashdotline .tsv-name {
+  background-image: url('spacer_dashdotline.gif');
+}
+
+.tsv-spacer.dashdotdotline .tsv-name {
+  background-image: url('spacer_dashdotdotline.gif');
+}
+
+.tsv-spacer.dotline .tsv-name {
+  background-image: url('spacer_dotline.gif');
+}
+
+.tsv-spacer.repeat .tsv-infos {
+  text-overflow: clip;
+  overflow: hidden;
+}
+
+.tsv-icon,
+.tsv-sibling {
+  width: 16px;
+  height: 16px;
+  background-image: url('tree@3x.png');
+  background-size: 160px 64px;
+  float: left;
+}
+
+.tsv-sibling-blank {
+  background-position: 160px 0px;
+}
+
+.tsv-sibling-mid {
+  background-position: 144px 0px;
+}
+
+.tsv-sibling-line {
+  background-position: 128px 0px;
+}
+
+.tsv-sibling-end {
+  background-position: 112px 0px;
+}
+
+.tsv-sibling-mid.expanded {
+  background-position: 64px 16px;
+  cursor: pointer;
+}
+
+.tsv-sibling-mid.collapsed {
+  background-position: 48px 16px;
+  cursor: pointer;
+}
+
+.tsv-sibling-end.expanded {
+  background-position: 32px 16px;
+  cursor: pointer;
+}
+
+.tsv-sibling-end.collapsed {
+  background-position: 16px 16px;
+  cursor: pointer;
+}
+
+.tsv-icon {
+  margin-right: 3px;
+}
+
+.tsv-icon.tsv-server-open {
+  background-position: 96px 0px;
+}
+
+.tsv-icon.tsv-server-pass {
+  background-position: 80px 0px;
+}
+
+.tsv-icon.tsv-server-full {
+  background-position: 64px 0px;
+}
+
+.tsv-icon.tsv-channel-open {
+  background-position: 48px 0px;
+}
+
+.tsv-icon.tsv-channel-pass {
+  background-position: 32px 0px;
+}
+
+.tsv-icon.tsv-channel-full {
+  background-position: 16px 0px;
+}
+
+.tsv-icon.tsv-client-idle {
+  background-position: 160px 48px;
+}
+
+.tsv-icon.tsv-client-talk {
+  background-position: 144px 48px;
+}
+
+.tsv-icon.tsv-client-cc-idle {
+  background-position: 128px 48px;
+}
+
+.tsv-icon.tsv-client-cc-talk {
+  background-position: 112px 48px;
+}
+
+.tsv-icon.tsv-client-mic-muted {
+  background-position: 96px 48px;
+}
+
+.tsv-icon.tsv-client-mic-disabled {
+  background-position: 80px 48px;
+}
+
+.tsv-icon.tsv-client-snd-muted {
+  background-position: 64px 48px;
+}
+
+.tsv-icon.tsv-client-snd-disabled {
+  background-position: 48px 48px;
+}
+
+.tsv-icon.tsv-client-away {
+  background-position: 32px 48px;
+}
+
+.tsv-icon.tsv-client-cc {
+  background-position: 16px 48px;
+}
+
+.tsv-icon.tsv-client-query {
+  background-position: 160px 32px;
+}
+
+.tsv-icon.tsv-client-priority {
+  background-position: 144px 32px;
+}
+
+.tsv-icon.tsv-client-talker {
+  background-position: 128px 32px;
+}
+
+.tsv-icon.tsv-channel-open-subscribed {
+  background-position: 112px 32px;
+}
+
+.tsv-icon.tsv-channel-pass-subscribed {
+  background-position: 96px 32px;
+}
+
+.tsv-icon.tsv-channel-full-subscribed {
+  background-position: 80px 32px;
+}
+
+.tsv-icon.tsv-channel-flag-music {
+  background-position: 64px 32px;
+}
+
+.tsv-icon.tsv-channel-flag-moderated {
+  background-position: 48px 32px;
+}
+
+.tsv-icon.tsv-channel-flag-password {
+  background-position: 32px 32px;
+}
+
+.tsv-icon.tsv-channel-flag-default {
+  background-position: 16px 32px;
+}
+
+.tsv-icon.tsv-group-100 {
+  background-position: 128px 16px;
+}
+
+.tsv-icon.tsv-group-200 {
+  background-position: 144px 16px;
+}
+
+.tsv-icon.tsv-group-300 {
+  background-position: 112px 16px;
+}
+
+.tsv-icon.tsv-group-500 {
+  background-position: 96px 16px;
+}
+
+.tsv-icon.tsv-group-600 {
+  background-position: 160px 16px;
+}
+
+.tsv-icon.tsv-error {
+  background-position: 80px 16px;
+}
+
+.tsv-icon.tsv-loader {
+  background: url('loader.gif');
+}
