@@ -1,5 +1,7 @@
 # jQuery [REST API TSViewer](https://www.planetteamspeak.com/rest-api/)
 
+Current Version: **1.0.0**
+
 This simple jQuery plugin provides a drop-in dynamic TeamSpeak 3 Server tree - aka TSViewer - that requires **no server-side scripting language** on your end. The [Simple REST API](https://www.planetteamspeak.com/rest-api/) hosted by [Planet TeamSpeak](https://www.planetteamspeak.com/) does all the queries, sorts channels and clients and even downloads all the remote icons for you. In addition, the result is cached, so your TS3 Server is not getting hammered with requests.
 
 All the required JavaScript and CSS files can be used directly from the [Planet TeamSpeak](https://www.planetteamspeak.com/) CDN:
