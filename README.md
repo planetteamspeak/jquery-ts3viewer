@@ -28,7 +28,7 @@ Using the default settings, the plugin with utilize the [Simple REST API](https:
 To add the TSViewer to your site, simply include jQuery and the plugin on a page. Then select a container element and call the `tsviewer` method with the IP address and port number of your TeamSpeak 3 Server.
 
 ```html
-<div id="ts3viewer"></div>
+<div id="#ts3viewer"></div>
 
 <script src="jquery.js"></script>
 <script src="jquery.ts3viewer.js"></script>
