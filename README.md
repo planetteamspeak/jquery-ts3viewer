@@ -15,7 +15,7 @@ We provide three different themes to match the look and feel of the official Tea
 * `colored` - modern colored icons introduced with version 3.0.16 in 2014 (HiDPI support)
 * `mono`    - modern monochrome icons introduced with version 3.0.16 in 2014 (HiDPI support)
 
-### Installation / Configuration
+## Installation / Configuration
 
 Upon initialization, the plugin takes the following options:
 
@@ -89,20 +89,20 @@ To add the TSViewer to your site, simply include jQuery and the plugin on a page
 </script>
 ```
 
-### Requirements
+## Requirements
 
-#### Using the Simple REST API
+### Using the Simple REST API
 
 Using the default settings, the plugin with utilize the [Simple REST API](https://www.planetteamspeak.com/rest-api/) endpoints at `api.planetteamspeak.com` to gather the necessary data from a TeamSpeak 3 Server. Therefore, the server must meet the following requirements:
 
 * The TS3 Server must report to the official server list on `weblist.teamspeak.com` and appear in the [Global Server List](https://www.planetteamspeak.com/serverlist/) on the [Planet TeamSpeak](https://www.planetteamspeak.com/) website.
 * The owner of the TS3 Server must register (claim) it on the on the [Planet TeamSpeak](https://www.planetteamspeak.com/) website and enable ServerQuery connectivity in the [Control Panel](https://www.planetteamspeak.com/control/servers/).
 
-#### Using the TS3 PHP Framework
+### Using the TS3 PHP Framework
 
 If you don't want to use the [Simple REST API](https://www.planetteamspeak.com/rest-api/), you can also create your own API endpoints using the [TS3 PHP Framework](https://github.com/planetteamspeak/ts3phpframework/).
 
-##### The `servernodes` API endpoint (`dataUrl`)
+#### The `servernodes` API endpoint (`dataUrl`)
 
 In the he following example, we connect to the ServerQuery interface of a TeamSpeak 3 Server and gather information about its channel structure and clients connected. The result is returned in JSON format.
 
@@ -132,7 +132,7 @@ header('Content-Type: application/json');
 echo json_encode($res);
 ```
 
-##### The `servericon` API endpoint (`iconUrl`)
+#### The `servericon` API endpoint (`iconUrl`)
 
 To download an icon from a TeamSpeak 3 Server, we need to initialize the filetransfer via ServerQuery first. The code snippet below gets the contents of the icon file from the server and sends the result including the appropriate MIME type.
 
@@ -161,6 +161,6 @@ header('Content-Type: ' . TeamSpeak3_Helper_Convert::imageMimeType($data));
 echo $data;
 ```
 
-### License
+## License
 Copyright &copy; Planet TeamSpeak.<br>
 Licensed under the MIT license.
