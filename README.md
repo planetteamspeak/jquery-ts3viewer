@@ -124,44 +124,42 @@ To add the TSViewer to your site, simply include jQuery and the plugin on a page
 <script src="jquery.ts3viewer.js"></script>
 
 <script>
-$("#tsviewer").tsviewer({
-  // mandatory server address
-  host: "84.200.62.248",
-  port: "9987",
-  // optional tooltip patterns
-  serverTip:  "Clients: $users/$slots",
-  channelTip: "Codec: $codec",
-  clientTip:  "Version: $version on $platform",
-  // optional callbacks
-  onNode:  function(elem, node) {
-    // your code
-  },
-  onReady: function(data, count) {
-    // your code
-  },
-  onError: function(error) {
-    // your code
-  }
-});
+  $("#tsviewer").tsviewer({
+    // mandatory server address
+    host: "84.200.62.248",
+    port: "9987",
+    // optional tooltip patterns
+    serverTip:  "Clients: $users/$slots",
+    channelTip: "Codec: $codec",
+    clientTip:  "Version: $version on $platform",
+    // optional callbacks
+    onNode:  function(elem, node) {
+      // your code
+    },
+    onReady: function(data, count) {
+      // your code
+    },
+    onError: function(error) {
+      // your code
+    }
+  });
 
-$("#refresh").click(function() {
-    // shortcut to refresh the tree
-    $("#tsviewer").tsviewerRefresh(true);
-});
-      
-$("#expand").click(function() {
-    // shortcut to expand all nodes
-    $("#tsviewer").tsviewerExpand();
-});
-      
-$("#collapse").click(function() {
-    // shortcut to collapse all nodes
-    $("#tsviewer").tsviewerCollapse();
-});
+  $("#refresh").click(function() {
+      // shortcut to refresh the tree
+      $("#tsviewer").tsviewerRefresh(true);
+  });
+
+  $("#expand").click(function() {
+      // shortcut to expand all nodes
+      $("#tsviewer").tsviewerExpand();
+  });
+
+  $("#collapse").click(function() {
+      // shortcut to collapse all nodes
+      $("#tsviewer").tsviewerCollapse();
+  });
 </script>
 ```
-
-A working example can be found here on JSFiddle.
 
 ### License
 Copyright &copy; Planet TeamSpeak.<br>
