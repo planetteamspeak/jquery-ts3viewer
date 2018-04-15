@@ -17,6 +17,8 @@ We provide three different themes to match the look and feel of the official Tea
 
 ## Installation / Configuration
 
+### Options
+
 Upon initialization, the plugin takes the following options:
 
 | Key        | Default | Optional |  Description                               |
@@ -37,11 +39,7 @@ Both API endpoint URLs support variables such as `$host`, `$port` and `$icon` fo
 
 The `$icon` variable will be replaced by the crc32 polynomial of the icon file. This is an unsigned integer equal to the icon ID that is used as a value for the `i_icon_id` permission on a TeamSpeak 3 Server.
 
-The tooltip patterns can be customized with several property variables taken from the JSON result. For example, this is what a server/client tooltip pattern could look like:
-
-    Version $version on $platform
-
-In addition, you can specify callbacks for advanced code enhancements such as context menus or drag &amp; drop.
+### Quick Start
 
 To add the TSViewer to your site, simply include jQuery and the plugin on a page. Then select a container element and call the `tsviewer` method with the IP address and port number of your TeamSpeak 3 Server.
 
@@ -53,13 +51,33 @@ To add the TSViewer to your site, simply include jQuery and the plugin on a page
 
 <script>
   $("#tsviewer").tsviewer({
-    // mandatory server address
     host: "84.200.62.248",
-    port: "9987",
-    // optional tooltip patterns
-    serverTip:  "Clients: $users/$slots",
-    channelTip: "Codec: $codec",
-    clientTip:  "Version: $version on $platform",
+    port: "9987"
+  });
+</script>
+```
+
+### Customization
+
+The tooltip patterns can be customized with several property variables taken from the JSON result. For example, this is what a server/client tooltip pattern could look like:
+
+    Version $version on $platform
+
+In addition, you can specify callbacks for advanced code enhancements such as context menus or drag &amp; drop.
+
+```html
+<div id="ts3viewer"></div>
+
+<script src="jquery.js"></script>
+<script src="jquery.ts3viewer.js"></script>
+
+<script>
+  $('#tsviewer').tsviewer({
+    host:       '84.200.62.248',
+    port:       '9987',
+    serverTip:  'Clients: $users/$slots',
+    channelTip: 'Codec: $codec',
+    clientTip:  'Version: $version on $platform',
     // optional callbacks
     onNode:  function(elem, node) {
       // your code
@@ -72,19 +90,19 @@ To add the TSViewer to your site, simply include jQuery and the plugin on a page
     }
   });
 
-  $("#refresh").click(function() {
+  $('#refresh').click(function() {
       // shortcut to refresh the tree
-      $("#tsviewer").tsviewerRefresh(true);
+      $('#tsviewer').tsviewerRefresh(true);
   });
 
-  $("#expand").click(function() {
+  $('#expand').click(function() {
       // shortcut to expand all nodes
-      $("#tsviewer").tsviewerExpand();
+      $('#tsviewer').tsviewerExpand();
   });
 
-  $("#collapse").click(function() {
+  $('#collapse').click(function() {
       // shortcut to collapse all nodes
-      $("#tsviewer").tsviewerCollapse();
+      $('#tsviewer').tsviewerCollapse();
   });
 </script>
 ```
