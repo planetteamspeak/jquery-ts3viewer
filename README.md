@@ -30,7 +30,7 @@ If you don't want to use the [Simple REST API](https://www.planetteamspeak.com/r
 
 ##### The `servernodes` API endpoint (`dataUrl`)
 
-In the he following example, we use the [TS3 PHP Framework](https://github.com/planetteamspeak/ts3phpframework/) to connect to the ServerQuery interface of a TeamSpeak 3 Server and gather information about its channel structure and clients connected. The result is returned in JSON format.
+In the he following example, we connect to the ServerQuery interface of a TeamSpeak 3 Server and gather information about its channel structure and clients connected. The result is returned in JSON format.
 
 ```php
 <?php
