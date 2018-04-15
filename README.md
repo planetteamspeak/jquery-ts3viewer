@@ -91,18 +91,18 @@ In addition, you can specify callbacks for advanced code enhancements such as co
   });
 
   $('#refresh').click(function() {
-      // shortcut to refresh the tree
-      $('#tsviewer').tsviewerRefresh(true);
+    // shortcut to refresh the tree
+    $('#tsviewer').tsviewerRefresh(true);
   });
 
   $('#expand').click(function() {
-      // shortcut to expand all nodes
-      $('#tsviewer').tsviewerExpand();
+    // shortcut to expand all nodes
+    $('#tsviewer').tsviewerExpand();
   });
 
   $('#collapse').click(function() {
-      // shortcut to collapse all nodes
-      $('#tsviewer').tsviewerCollapse();
+    // shortcut to collapse all nodes
+    $('#tsviewer').tsviewerCollapse();
   });
 </script>
 ```
