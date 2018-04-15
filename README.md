@@ -167,7 +167,7 @@ try
   $init = $ts3->transferInitDownload(rand(0x0000, 0xFFFF), 0, '/icon_' . $ico);
   
   $ft   = TeamSpeak3::factory('filetransfer://' . $init['host'] . ':' . $init['port']);
-  $data = $ft->download($init["ftkey"], $init["size"]);
+  $data = $ft->download($init['ftkey'], $init['size']);
 }
 catch(TeamSpeak3_Exception $e)
 {
