@@ -15,78 +15,6 @@ We provide three different themes to match the look and feel of the official Tea
 * `colored` - modern colored icons introduced with version 3.0.16 in 2014 (HiDPI support)
 * `mono`    - modern monochrome icons introduced with version 3.0.16 in 2014 (HiDPI support)
 
-### Requirements
-
-#### Using the Simple REST API
-
-Using the default settings, the plugin with utilize the [Simple REST API](https://www.planetteamspeak.com/rest-api/) endpoints at `api.planetteamspeak.com` to gather the necessary data from a TeamSpeak 3 Server. Therefore, the server must meet the following requirements:
-
-* The TS3 Server must report to the official server list on `weblist.teamspeak.com` and appear in the [Global Server List](https://www.planetteamspeak.com/serverlist/) on the [Planet TeamSpeak](https://www.planetteamspeak.com/) website.
-* The owner of the TS3 Server must register (claim) it on the on the [Planet TeamSpeak](https://www.planetteamspeak.com/) website and enable ServerQuery connectivity in the [Control Panel](https://www.planetteamspeak.com/control/servers/).
-
-#### Using the TS3 PHP Framework
-
-If you don't want to use the [Simple REST API](https://www.planetteamspeak.com/rest-api/), you can also create your own API endpoints using the [TS3 PHP Framework](https://github.com/planetteamspeak/ts3phpframework/).
-
-##### The `servernodes` API endpoint (`dataUrl`)
-
-In the he following example, we connect to the ServerQuery interface of a TeamSpeak 3 Server and gather information about its channel structure and clients connected. The result is returned in JSON format.
-
-```php
-<?php
-
-require('libraries/TeamSpeak3/TeamSpeak3.php');
-
-$res = new stdClass();
-
-try
-{
-  $ts3 = TeamSpeak3::factory('serverquery://84.200.62.248:10011/?server_port=9987#no_query_clients');
-  
-  $res->status = 'success';
-  $res->result = json_decode($ts3->getViewer(new TeamSpeak3_Viewer_Json()));
-}
-catch(TeamSpeak3_Exception $e)
-{
-  $res->status = 'error';
-  $res->result = (object) array('code' => $e->getCode(), 'message' => $e->getMessage());
-}
-
-header('Access-Control-Allow-Origin: *'); 
-header('Content-Type: application/json');
-
-echo json_encode($res);
-```
-
-##### The `servericon` API endpoint (`iconUrl`)
-
-To download an icon from a TeamSpeak 3 Server, we need to initialize the filetransfer via ServerQuery first. The code snippet below gets the contents of the icon file from the server and sends the result including the appropriate MIME type.
-
-```php
-<?php
-
-require('libraries/TeamSpeak3/TeamSpeak3.php');
-
-$ico = $_GET['icon_id'];
-
-try
-{
-  $ts3  = TeamSpeak3::factory('serverquery://84.200.62.248:10011/?server_port=9987');
-  $init = $ts3->transferInitDownload(rand(0x0000, 0xFFFF), 0, '/icon_' . $ico);
-  
-  $ft   = TeamSpeak3::factory('filetransfer://' . $init['host'] . ':' . $init['port']);
-  $data = $ft->download($init["ftkey"], $init["size"]);
-}
-catch(TeamSpeak3_Exception $e)
-{
-  $data = file_get_contents('custom_error_icon.png');
-}
-
-header('Content-Type: ' . TeamSpeak3_Helper_Convert::imageMimeType($data));
-
-echo $data;
-```
-
 ### Installation / Configuration
 
 Upon initialization, the plugin takes the following options:
@@ -159,6 +87,78 @@ To add the TSViewer to your site, simply include jQuery and the plugin on a page
       $("#tsviewer").tsviewerCollapse();
   });
 </script>
+```
+
+### Requirements
+
+#### Using the Simple REST API
+
+Using the default settings, the plugin with utilize the [Simple REST API](https://www.planetteamspeak.com/rest-api/) endpoints at `api.planetteamspeak.com` to gather the necessary data from a TeamSpeak 3 Server. Therefore, the server must meet the following requirements:
+
+* The TS3 Server must report to the official server list on `weblist.teamspeak.com` and appear in the [Global Server List](https://www.planetteamspeak.com/serverlist/) on the [Planet TeamSpeak](https://www.planetteamspeak.com/) website.
+* The owner of the TS3 Server must register (claim) it on the on the [Planet TeamSpeak](https://www.planetteamspeak.com/) website and enable ServerQuery connectivity in the [Control Panel](https://www.planetteamspeak.com/control/servers/).
+
+#### Using the TS3 PHP Framework
+
+If you don't want to use the [Simple REST API](https://www.planetteamspeak.com/rest-api/), you can also create your own API endpoints using the [TS3 PHP Framework](https://github.com/planetteamspeak/ts3phpframework/).
+
+##### The `servernodes` API endpoint (`dataUrl`)
+
+In the he following example, we connect to the ServerQuery interface of a TeamSpeak 3 Server and gather information about its channel structure and clients connected. The result is returned in JSON format.
+
+```php
+<?php
+
+require('libraries/TeamSpeak3/TeamSpeak3.php');
+
+$res = new stdClass();
+
+try
+{
+  $ts3 = TeamSpeak3::factory('serverquery://84.200.62.248:10011/?server_port=9987#no_query_clients');
+  
+  $res->status = 'success';
+  $res->result = json_decode($ts3->getViewer(new TeamSpeak3_Viewer_Json()));
+}
+catch(TeamSpeak3_Exception $e)
+{
+  $res->status = 'error';
+  $res->result = (object) array('code' => $e->getCode(), 'message' => $e->getMessage());
+}
+
+header('Access-Control-Allow-Origin: *'); 
+header('Content-Type: application/json');
+
+echo json_encode($res);
+```
+
+##### The `servericon` API endpoint (`iconUrl`)
+
+To download an icon from a TeamSpeak 3 Server, we need to initialize the filetransfer via ServerQuery first. The code snippet below gets the contents of the icon file from the server and sends the result including the appropriate MIME type.
+
+```php
+<?php
+
+require('libraries/TeamSpeak3/TeamSpeak3.php');
+
+$ico = $_GET['icon_id'];
+
+try
+{
+  $ts3  = TeamSpeak3::factory('serverquery://84.200.62.248:10011/?server_port=9987');
+  $init = $ts3->transferInitDownload(rand(0x0000, 0xFFFF), 0, '/icon_' . $ico);
+  
+  $ft   = TeamSpeak3::factory('filetransfer://' . $init['host'] . ':' . $init['port']);
+  $data = $ft->download($init["ftkey"], $init["size"]);
+}
+catch(TeamSpeak3_Exception $e)
+{
+  $data = file_get_contents('custom_error_icon.png');
+}
+
+header('Content-Type: ' . TeamSpeak3_Helper_Convert::imageMimeType($data));
+
+echo $data;
 ```
 
 ### License
