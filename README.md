@@ -66,7 +66,7 @@ The tooltip patterns can be customized with several property variables taken fro
 In addition, you can specify callbacks for advanced code enhancements such as context menus or drag &amp; drop.
 
 ```html
-<div id="ts3viewer"></div>
+<div id="tsviewer"></div>
 
 <script src="jquery.js"></script>
 <script src="jquery.ts3viewer.js"></script>
